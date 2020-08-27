@@ -15,8 +15,16 @@ Value types are the data that is passed by value.
 Size of integers ranges from int8/uint8 to int256/uint256, in steps of 8. They allow the following operations:
 
 * Comparisons: <=, <, ==, !=, >=, > (evaluate to bool)
-* 
+* Bit operators: &, |, ^ (), ~(bitwise negation)
+* Shift operators: <<(left shift), >>(right shift)
+* Arithmetic operators: +, -, unary-, *, /, %(modulo), **(exponentation)
+
 <h5> 1.1.3 Address </h5>
+There are two main types of this class:
+
+* **Address**: Holds a 20 byte value
+* **Address Payable**: 
+
 <h4> 1.2 Reference Types </h4>
 <h4> 1.3 Data Structures </h4>
 <h2> 2. Functions </h2>
