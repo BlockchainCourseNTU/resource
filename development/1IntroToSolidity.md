@@ -3,9 +3,19 @@
 <h4> 1.1 Value Types </h4>
 Value types are the data that is passed by value.
 <h5> 1.1.1 Bool </h5>
-Bool type only has 2 possible values, ```true``` or ```false```. They allow the following operations:
-* !()
+<p>Bool type only has 2 possible values, `true` or `false`. They allow the following operations:</p>
+
+* !(logical negation)
+* &&(logical and)
+* ||(logical or)
+* ==(equality)
+* !=(inequality)
+
 <h5> 1.1.2 Integers </h5>
+Size of integers ranges from int8/uint8 to int256/uint256, in steps of 8. They allow the following operations:
+
+* Comparisons: <=, <, ==, !=, >=, > (evaluate to bool)
+* 
 <h5> 1.1.3 Address </h5>
 <h4> 1.2 Reference Types </h4>
 <h4> 1.3 Data Structures </h4>
