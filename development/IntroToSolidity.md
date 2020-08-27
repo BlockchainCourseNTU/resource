@@ -1,5 +1,5 @@
 <h1>1. Introduction to Solidity - Frontend Contract</h1>
-
+<h2> Data Types </h2>
 <h4>References</h4>
 
 1. <a href="https://drive.google.com/file/d/1ceFHDQyZB7WUP-EMnUbki3Ooir1ULBz0/view">Blockchain@Berkeley Slides</a>
