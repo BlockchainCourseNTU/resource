@@ -24,8 +24,21 @@ There are two main types of this class:
 
 * **Address**: Holds a 20 byte value (size of an Ethereum address).
 * **Address Payable**: Same as address, but with the additional members transfer and send.
+
 They allow the following operators: <=, <, ==, !=, >=, >
 
+The transfer function fails if the balance of the current contract is not large enough or if the Ether transfer is rejected by the receiving account. The transfer function reverts on failure.
+
+Send is the low-level counterpart of transfer. If the execution fails, the current contract will not stop with an 
+
+Example of Transfer & Send
+
+<code>
+  address payable = address(0x123);
+  address myAddress = address(this);
+  if(x.balance < 10 && myAddress.balance >= 10)
+    x.transfer(10);
+</code>
 <h4> 1.2 Reference Types </h4>
 <h4> 1.3 Data Structures </h4>
 <h2> 2. Functions </h2>
