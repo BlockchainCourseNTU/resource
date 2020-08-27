@@ -8,7 +8,9 @@ Value types are the data that is passed by value.
 <h4> 1.2 Reference Types </h4>
 <h4> 1.3 Data Structures </h4>
 <h2> 2. Functions </h2>
+
 * function name
+
 * 
 Value types are the data that is passed by reference. They are either Arrays, Structs or Data Locations.
 <h4>References</h4>
