@@ -11,7 +11,13 @@ Value types are the data that is passed by value.
 
 * function name
 
-* 
+* argType1 arg1, ...
+
+* access classifier
+   * public - all can access
+   * external - cannot be accessed internally, only externally
+   * internal - 
+   * private - 
 Value types are the data that is passed by reference. They are either Arrays, Structs or Data Locations.
 <h4>References</h4>
 
