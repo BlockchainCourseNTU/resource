@@ -39,6 +39,9 @@ Example of Transfer & Send
   if(x.balance < 10 && myAddress.balance >= 10)
     x.transfer(10);
 </code>
+  
+<h5> 1.1.4 Contract Types </h5>
+<h5> 1.1.5 String Literals </h5>
 <h4> 1.2 Reference Types </h4>
 <h4> 1.3 Data Structures </h4>
 <h2> 2. Functions </h2>
