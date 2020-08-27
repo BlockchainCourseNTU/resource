@@ -1,8 +1,11 @@
-<h1>1. Introduction to Solidity - Frontend Contract</h1>
+<h1>1. Introduction to Solidity - The Basics </h1>
 <h2> 1. Data Types </h2>
-<h4>Value Types</h4>
+<h4> 1.1 Value Types </h4>
 Value types are the data that is passed by value.
-<h4>Reference Types</h4>
+<h5> 1.1.1 Bool </h5>
+<h5> 1.1.2 Integers </h5>
+<h5> 1.1.3 Address </h5>
+<h4> 1.2 Reference Types </h4>
 Value types are the data that is passed by reference. They are either Arrays, Structs or Data Locations.
 <h4>References</h4>
 
