@@ -3,7 +3,7 @@
 <h4> 1.1 Value Types </h4>
 Value types are the data that is passed by value.
 <h5> 1.1.1 Bool </h5>
-Bool type only has 2 possible values, `<true>` or `<false>`. They allow the following operations:
+Bool type only has 2 possible values, ```true``` or ```false```. They allow the following operations:
 * !()
 <h5> 1.1.2 Integers </h5>
 <h5> 1.1.3 Address </h5>
