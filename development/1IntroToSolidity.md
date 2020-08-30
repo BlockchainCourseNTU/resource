@@ -34,12 +34,12 @@ Send is the low-level counterpart of transfer. If the execution fails, the curre
 
 Example of Transfer & Send
 
-<code>
+```
   address payable = address(0x123);
   address myAddress = address(this);
   if(x.balance < 10 && myAddress.balance >= 10)
     x.transfer(10);
-</code>
+```
   
 <h5> 1.1.4 Contract Types </h5>
 
@@ -49,12 +49,106 @@ Example of Transfer & Send
 
 <h5> 1.1.5 String Literals </h5>
 
+```
+bytes32 a = "stringliteral"
+string b = "stringliteral"
+a == b
+Hex "DEADBEEF"
+"\n\"\'\\abc\
+def"
+```
 <h5> 1.1.6 Enum </h5>
 
-<h4> 1.2 Reference Types </h4>
-<h4> 1.3 Data Structures </h4>
-<h2> 2. Functions </h2>
+```
+pragma solidity>=0.4.16<0.6.0;
 
+contract test{
+ enum ActionChoices{ GoLeft, GoRight, GoStraight, SitStill }
+ ActionChoices choice;
+ ActionChoices constant defaultChoice = ActionChoices.GoStraight;
+ 
+ function setGoStraight() public {
+  choice = ActionChoices.GoStraight;
+ }
+ 
+ function getChoice() public view returns (ActionChoices) {
+  return choice;
+ }
+ 
+ function getDefaultChoice() public pure returns (uint) {
+  return unit(defaultChoice);
+ }
+}
+```
+In the above example, since enum types are not part of ABI, the signature of "getChoice" will be automatically changed to "getChoice() returns (uint8)" for all matters external to Solidity. The integer type used is just large enough to hold all enum values. If you have more than 256 values, "uint16" will be used.
+
+<h4> 1.2 Reference Types and Data Structures </h4>
+Reference types are the data that is passed by reference. They are either Arrays, Structs or Data Locations.
+<h5> 1.2.1 Arrays </h5>
+
+```
+// Arrays
+bytes32[5] nicknames; // static array
+bytes32[] names; // dynamic array
+uint newLength = names.push(); // adding returns new length of the array
+
+// Length
+names.length; // get length
+names.length = 1; // lengths can be set (for dynamic arrays in storage only)
+
+// multidimensional array
+uint x[][5]; // arr with 5 dynamic array elements (opp order of most languages)
+```
+<h5> 1.2.2 Structs </h5>
+
+```
+struct Bank {
+ address owner;
+ uint balance;
+}
+Bank b = Bank({
+ owner: msg.sender,
+ balance: 5
+});
+// or 
+Bank c = Bank(msg.sender, 5);
+
+c.balance = 4; // Set to new value
+delete b; // Sets to initial value, set all variables in struct to 0, except mappings
+```
+<h5> 1.2.3 Data Locations </h5>
+
+* memory: 
+* storage
+* calldata
+<h5> 1.2.4 Mappings </h5>
+
+```
+// Dictionaries (any type to any other type)
+mapping (string=>uint) public balances;
+balances["charles"] = 1;
+```
+Result of balances["charles"] is 0, since all non-set key values return zeroes.
+
+```
+// "public" allows following from another contract
+contractName.balances("charles");
+// "public" created a getter (but not setter) like the following:
+function balances(string _account) returns (uint balance) {
+ return balances[_account];
+}
+```
+
+```
+// Nested mappings
+mapping(address => mapping (address => uint)) public custodians;
+
+// To delete
+delete balances["John"];
+delete balances; // Set all elements to 0
+```
+<h2> 2. Functions </h2>
+<h4> 2.1 Function Basics </h4>
 * function name
 
 * argType1 arg1, ...
@@ -67,7 +161,69 @@ Example of Transfer & Send
    
 * returnType(optional return var name)
 
-Value types are the data that is passed by reference. They are either Arrays, Structs or Data Locations.
+```
+function withdraw(uint withdrawAmount) public returns (uint remainingBal) {
+ require(withdrawAmount <= balances[msg.sender]);
+ 
+ balances[msg.sender] -= withdrawAmount;
+ 
+ msg.sender.transfer(withdrawAmount);
+ 
+ return balances[msg.sender];
+}
+```
+
+**IMPORTANT**: Access classifiers determine who can USE your functions, but everyone can see them, since
+
+<h4> 2.2 Payable Function </h4>
+Only functions marked as payable can receive Ether. Non-payable functions with Ether values will be routed to default function.
+
+```
+function deposit() public payable returns (uint) {
+ // Use 'require' to test user inputs, 'assert' for internal invariants
+ // Here we are making sure that there isn't an overflow issue
+ require((balances[msg.sender] + msg.value) >= balances[msg.sender]);
+ 
+ balances[msg.sender] += msg.value;
+ 
+ LogDepositMade(msg.sender, msg.value); // fire event
+ 
+ return balances[msg.sender];
+}
+```
+
+<h4> 2.3 Fallback Function </h4>
+Intuitively, this can be thought of as the default behavior when the contract does not recognize the command.
+
+* Invoked when a function is called which does not match any other contract function
+* Only one per contract
+* No arguments, returns nothing
+* Typically payable: enables contract to receive Ether sent directly to it
+
+```
+function() external payable {
+ require(msg.value >= prize || msg.sender == owner);
+ king.transfer(msg.value);
+ king = msg.sender;
+ prize = msg.value;
+}
+```
+
+
+<h4> 2.4 Constructors </h4>
+
+* Create an instance of the contract with the given arguments
+* Only one allowed, cannot be overloaded
+* 2 Implementations:
+ * function [] ()
+ * constructor (arg1, arg2)
+
+```
+contract SimpleBank { // contract name should be CapWords
+ // 
+ mapping (address => uint) private balances;
+}
+```
 <h4>References</h4>
 
 1. <a href="https://drive.google.com/file/d/1ceFHDQyZB7WUP-EMnUbki3Ooir1ULBz0/view">Blockchain@Berkeley Slides</a>
