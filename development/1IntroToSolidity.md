@@ -3,6 +3,7 @@
 <h4> 1.1 Value Types </h4>
 Value types are the data that is passed by value.
 <h5> 1.1.1 Bool </h5>
+ 
 Bool type only has 2 possible values, `true` or `false`. They allow the following operators:
 
 * !(logical negation)
@@ -71,7 +72,7 @@ Value types are the data that is passed by reference. They are either Arrays, St
 
 1. <a href="https://drive.google.com/file/d/1ceFHDQyZB7WUP-EMnUbki3Ooir1ULBz0/view">Blockchain@Berkeley Slides</a>
 
-2. <a href="">Blockchain@NTU Slides</a>
+2. <a href="https://docs.google.com/presentation/d/10f86TBXPca66OE_xw2f2W9ZOVLkp8KR8iLkw7xdQElI/edit?usp=sharing">Blockchain@NTU Slides</a>
 
 <a href="https://cryptozombies.io/">CryptoZombies</a> is a game-based tutorial that teaches you all things technical about blockchains and also, how to make smart contracts in Solidity. 
 For any grammar details, please refer to the <a href="https://solidity.readthedocs.io/en/latest/">Solidity documentation</a>.
