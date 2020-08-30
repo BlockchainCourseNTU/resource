@@ -215,8 +215,8 @@ function() external payable {
 * Create an instance of the contract with the given arguments
 * Only one allowed, cannot be overloaded
 * 2 Implementations:
- * function [] ()
- * constructor (arg1, arg2)
+ * function [contractName] (arg1, arg2 ...)
+ * constructor (arg1, arg2 ...)
 
 ```
 contract SimpleBank { // contract name should be CapWords
