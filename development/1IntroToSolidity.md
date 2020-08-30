@@ -3,7 +3,7 @@
 <h4> 1.1 Value Types </h4>
 Value types are the data that is passed by value.
 <h5> 1.1.1 Bool </h5>
-<p>Bool type only has 2 possible values, `true` or `false`. They allow the following operators:</p>
+Bool type only has 2 possible values, `true` or `false`. They allow the following operators:
 
 * !(logical negation)
 * &&(logical and)
@@ -41,7 +41,15 @@ Example of Transfer & Send
 </code>
   
 <h5> 1.1.4 Contract Types </h5>
+
+* Contracts do not support any operators.
+* The members of contract types are the external functions of the contract including public state variables.
+* For a contract C, type(C) returns type information about the contract.
+
 <h5> 1.1.5 String Literals </h5>
+
+<h5> 1.1.6 Enum </h5>
+
 <h4> 1.2 Reference Types </h4>
 <h4> 1.3 Data Structures </h4>
 <h2> 2. Functions </h2>
