@@ -224,6 +224,95 @@ contract SimpleBank { // contract name should be CapWords
  mapping (address => uint) private balances;
 }
 ```
+
+<h2> 3. Global Variables </h2>
+<h4> 3.1 Currency Units </h4>
+
+* Currency units are tracked as **uints**
+* A number can take a postfix of **wei**, **finney**, **szabo** or **ether** to convert between denominations of Ether.
+
+```
+// Currency Units
+// Currency is defined using wei, the smallest unit of Ether
+uint minAmunt = 1 wei;
+uint a = 1 ether; // 1 ether == 10**18 wei
+uint b = 1 finney; // 1 ether == 1000 finney
+
+// Currency uints without a postfix are assumed to be wei
+require(a == 10**18 && b == 10**15); // true
+```
+<h4> 3.2 Time </h4>
+
+* Solidity tracks time as a Unix TimeStamp, 
+* A number can take a postfix of **seconds*, **minutes**, **hours**, etc. to convert between denominations of Ether.
+
+```
+// Time units
+1 == 1 seconds
+1 minutes ==  60 seconds
+
+now; // returns current Unix TimeStamp
+// Note that this can be manipulated by miners, so use carefully
+```
+<h4> 3.3 this </h4>
+
+```
+this; // address of contract
+// often used at end of contract life to transfer remaining balance to party
+this.balance;
+this.someFunction(); // calls func externally via call, not via internal jump
+```
+
+<h4> 3.4 MSG, TX </h4>
+
+```
+// msg - Current message received by the contract
+msg.sender; // address of sender
+msg.value; // amount of ether provided to this contract in wei, function should be marked "payable"
+msg.data; // bytes, complete call data
+msg.gas; // remaining gas
+
+// tx - This transaction
+tx.origin; // address of sender of the transaction
+tx.gasprice; // gas price of the transaction
+```
+
+Differnece between `msg.sender` and `tx.origin`:
+
+In this case, for contract B, `msg.sender: address A` and `tx.origin: address A`; 
+for contract C, `msg.sender: address B` and `tx.origin: address A`.
+
+
+<h2> 4. External Contracts </h2>
+
+```
+contract InfoFeed {
+ function info() returns (uint) {
+  return 42;
+ }
+}
+```
+
+In another file, we will do the following:
+
+```
+import "./";
+
+contract Consumer {
+
+ InfoFeed feed; // points to contract on blockchain
+ 
+ // Set feed to new instance of contract
+ function createNewFeed(){
+   // new instance created, constructor call
+   feed = new InfoFeed();
+ }
+ // Set feed to existing contract instance
+   function setFeed(address addr) {
+     feed = InfoFeed(addr)
+ }
+}
+```
 <h4>References</h4>
 
 1. <a href="https://drive.google.com/file/d/1ceFHDQyZB7WUP-EMnUbki3Ooir1ULBz0/view">Blockchain@Berkeley Slides</a>
