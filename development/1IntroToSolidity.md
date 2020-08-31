@@ -284,6 +284,7 @@ for contract C, `msg.sender: address B` and `tx.origin: address A`.
 
 
 <h2> 4. External Contracts </h2>
+Contracts in Solidity is similar to the concept of classes in object-oriented languages.
 
 ```
 contract InfoFeed {
@@ -307,10 +308,38 @@ contract Consumer {
    // new instance created, constructor call
    feed = new InfoFeed();
  }
+ 
  // Set feed to existing contract instance
-   function setFeed(address addr) {
-     feed = InfoFeed(addr)
+ function setFeed(address addr) {
+   feed = InfoFeed(addr);
  }
+ 
+ function callFeed() {
+   feed.info();
+ }
+}
+```
+
+<h2> 5. Modifiers </h2>
+Modifiers validate inputs to functions such as minimal balance or user auth.
+
+For example, for a function that transfers balances from one address to another:
+```
+function transferBalance(address from, address to) public onlyOwner {
+ balances[to] += balances[from];
+ balances[from] = 0;
+}
+
+// '_' (underscore) often included as last line in body, and indicates
+// the function being called should be placed here
+modifier onlyOwner() {
+ require(msg.sender == owner);
+ _;
+}
+
+modifier onlyOwner() {
+ require(now >= _time);
+ _;
 }
 ```
 <h4>References</h4>
