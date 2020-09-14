@@ -20,12 +20,16 @@ Smart contracts may contain many vulnerabilities. In 2016, a hacker stole $50 mi
 <a href="https://consensys.github.io/smart-contract-best-practices/">Here</a> is a nice document of knowledge of security considerations that we as engineers should have.
 
 <h2> 4. Events </h2>
+
+About how to use Event: <a href="https://www.tutorialspoint.com/solidity/solidity_events.htm">here</a>.
 <h2> 5. Interface </h2>
 <h2> 6. Pure Function </h2>
 <a href="https://www.tutorialspoint.com/solidity/solidity_pure_functions.htm#:~:text=Pure%20functions%20ensure%20that%20they,throw%20warning%20in%20such%20cases.">Pure Functions</a> in Solidity are restricted to be unable to read or modify the state. This is a way to reduce the possibility of affecting other procedures and causing security issues.
 
 <h2> 7. DelegateCall, CallData, CallCode </h2>
 
+
 <h2> 8. Inline Assembly </h2>
-<h2> 9.  </h2>
-<a href="https://consensys.github.io/smart-contract-best-practices/"></a>
+This feature of Solidity allows you to interleave Solidity statements with 
+
+1. Latest version of <a href="https://solidity.readthedocs.io/en/v0.7.1/">Solidity documentation</a>
