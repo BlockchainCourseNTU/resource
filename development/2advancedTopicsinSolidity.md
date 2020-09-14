@@ -15,6 +15,9 @@ Click <a href="https://docs.openzeppelin.com/contracts/2.x/tokens#:~:text=A%20to
 Click <a href="https://docs.openzeppelin.com/contracts/3.x/api/token/erc20">here</a> if you are interested in the detailed design and programming of ERC20 token.
 
 <h2> 3. Smart Contract Security </h2>
+Smart contracts may contain many vulnerabilities. In 2016, a hacker stole $50 million from the <a href="https://www.technologyreview.com/2016/05/17/160160/the-autonomous-corporation-called-the-dao-is-not-a-good-way-to-spend-130-million/">so-called Decentralized Autonomous Organization</a>. Ilya Sergey, a computer scientist from University College London, coauthored a <a href="https://arxiv.org/pdf/1802.06038.pdf">study</a> on the topic of smart contract security, found around 34,000 smart contracts out of one million to be vulnerable.
+
+<a href="https://consensys.github.io/smart-contract-best-practices/">Here</a> is a nice document of knowledge of security considerations that we as engineers should have.
 
 <h2> 4. Events </h2>
 <h2> 5. Interface </h2>
