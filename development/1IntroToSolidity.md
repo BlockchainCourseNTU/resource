@@ -356,4 +356,4 @@ For any grammar details, please refer to the <a href="https://solidity.readthedo
 
 First version by:
 
-![alt text]
+![alt text](https://github.com/BlockchainCourseNTU/resource/blob/huangyuan/development/pictures/logo.png)
