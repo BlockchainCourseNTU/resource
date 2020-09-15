@@ -42,3 +42,4 @@ The language used for inline assembly is called <a href="https://solidity.readth
 
 
 First Version by: 
+![alt text](https://github.com/BlockchainCourseNTU/resource/blob/huangyuan/development/pictures/logo.png)
