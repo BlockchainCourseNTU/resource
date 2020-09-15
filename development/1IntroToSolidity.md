@@ -349,4 +349,7 @@ modifier onlyOwner() {
 2. <a href="https://docs.google.com/presentation/d/10f86TBXPca66OE_xw2f2W9ZOVLkp8KR8iLkw7xdQElI/edit?usp=sharing">Blockchain@NTU Slides</a>
 
 <a href="https://cryptozombies.io/">CryptoZombies</a> is a game-based tutorial that teaches you all things technical about blockchains and also, how to make smart contracts in Solidity. 
+
+<a href="https://ethernaut.openzeppelin.com/">Ethernaut</a> is a CTF-style game focused on smart contract development and security.
+
 For any grammar details, please refer to the <a href="https://solidity.readthedocs.io/en/latest/">Solidity documentation</a>.
