@@ -37,6 +37,8 @@ In Solidity, when we want to call a function from another contract, if we know t
 This feature of Solidity allows you to interleave Solidity statements with inline assembly in a language close to the one of the Ethereum virtual machine. Look at its <a href="https://solidity.readthedocs.io/en/v0.7.1/assembly.html">documentation</a> to have a closer look.
 The language used for inline assembly is called <a href="https://solidity.readthedocs.io/en/v0.7.1/yul.html#yul">Yul</a>.
 
-<h5>References:</h5>
+<h5>Other resources:</h5>
 1. Latest version of <a href="https://solidity.readthedocs.io/en/v0.7.1/">Solidity documentation</a>
+
+
 First Version by: 
