@@ -28,7 +28,7 @@ About how to use Event: <a href="https://www.tutorialspoint.com/solidity/solidit
 
 <h2> 7. DelegateCall, CallData, CallCode </h2>
 
-If we don't know the ABI of target contract, we use `call()` or `delegatecall()`. DelegateCall is a calling mechanism of how caller contract calls target contract function. Read this <a href="https://medium.com/coinmonks/delegatecall-calling-another-contract-function-in-solidity-b579f804178c">post</a> for details on how to use them.
+In Solidity, when we want to call a function from another contract, if we know target contract ABI, we can directly use function signature. However, if we don't know the ABI of target contract, we use `call()` or `delegatecall()`. DelegateCall is a calling mechanism of how caller contract calls target contract function. Read this <a href="https://medium.com/coinmonks/delegatecall-calling-another-contract-function-in-solidity-b579f804178c">post</a> for details on how to use them.
 
 <h2> 8. Inline Assembly </h2>
 This feature of Solidity allows you to interleave Solidity statements with inline assembly in a language close to the one of the Ethereum virtual machine. Look at its <a href="https://solidity.readthedocs.io/en/v0.7.1/assembly.html">documentation</a> to have a closer look.
