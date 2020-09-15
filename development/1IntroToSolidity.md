@@ -353,3 +353,7 @@ modifier onlyOwner() {
 <a href="https://ethernaut.openzeppelin.com/">Ethernaut</a> is a CTF-style game focused on smart contract development and security.
 
 For any grammar details, please refer to the <a href="https://solidity.readthedocs.io/en/latest/">Solidity documentation</a>.
+
+First version by:
+
+![alt text]
