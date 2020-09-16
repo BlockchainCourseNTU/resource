@@ -23,6 +23,7 @@ Smart contracts may contain many vulnerabilities. In 2016, a hacker stole $50 mi
 
 About how to use Event: <a href="https://www.tutorialspoint.com/solidity/solidity_events.htm">here</a>.
 <h2> 5. Interface </h2>
+<a href="https://solidity.readthedocs.io/en/v0.7.0/contracts.html#interfaces">Interface</a> is a useful feature added since Solidity 0.6.2.
 <h2> 6. Pure Function </h2>
 <a href="https://www.tutorialspoint.com/solidity/solidity_pure_functions.htm#:~:text=Pure%20functions%20ensure%20that%20they,throw%20warning%20in%20such%20cases.">Pure Functions</a> in Solidity are restricted to be unable to read or modify the state. This is a way to reduce the possibility of affecting other procedures and causing security issues.
 
