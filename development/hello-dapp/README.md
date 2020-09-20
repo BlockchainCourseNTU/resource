@@ -134,6 +134,31 @@ Navigate to "Contracts" tab, you will see contracts' respective address.
 Don't be intimated, we can always start simple and slowly explore the rest, the deployment scripts we are using for this workshop is minimal and trivial to understand semantically.
 When in doubt, check [docs on different deployment options/capability](https://www.trufflesuite.com/docs/truffle/getting-started/running-migrations)
 
-## Step 3:
+## Step 3: Write Unit Tests
+
+Without unit tests, we won't be confident that our code works as we expect.
+Writing unit tests as we implement functionalities into our smart contract from the very beginning is the best practice. (make sure each modular components/functions work as expected, producing the desired input-output relationship)
+
+Please take a look at [.test/bank.js](./test/bank.js) for an unit test example.
+
+If you are a JavaScript developer, the overall structure and keywords like `it`, `describe`, `assert`, `expect` might already sounds familiar.
+If not, please read ["Writing tests in Truffle using JavaScript"](https://www.trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript) to get detailed information, or alternatively, you could learn by reading the given example with rich commentaries of what's going on.
+
+To run these tests:
+
+```sh
+truffle test
+```
+
+which should output something similar to:
+
+```sh
+  Contract: Bank
+    ✓ should make deployer the owner
+    ✓ can deposit correctly (98ms)
+    ✓ can withdraw less than despoited (131ms)
+
+  3 passing (302ms)
+```
 
 ## Step 4:
