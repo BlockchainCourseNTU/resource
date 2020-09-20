@@ -24,6 +24,7 @@ Make sure the following are installed:
 
 - [node](https://nodejs.org/en/) v8.9.4 or later
 - [npm](https://www.npmjs.com/get-npm) or [yarn](https://classic.yarnpkg.com/en/docs/install/) (you can test by running `npm -v` or `yarn -v`)
+- [MetaMask Extension](https://metamask.io/download.html) and created at least 1 account
 
 Next, install truffle:
 
@@ -161,4 +162,98 @@ which should output something similar to:
   3 passing (302ms)
 ```
 
-## Step 4:
+## Step 4: Deploy Contracts To Testnet
+
+**Only deploy your smart contracts to testnet when you have extensively tested all your functionalities**!
+
+For example, our current example tests are not extensive enough, we haven't tested many other cases like "transaction should fail when someone try to withdraw more than he/she deposited", or the case "transaction should fail when someone try to deposit 0 or non-positive amount".
+
+### Step 4.1 Choose a Testnet
+
+You can randomly choose from one of Goerli, Ropsten, Kovan, and Rinkby.
+They are no big differences among them technically wise, some are more community driven while others are backed by few key companies.
+
+We will choose Ropsten testnet for this tutorial.
+
+### Step 4.2 Get Ether From Testnet Faucet
+
+Testnet are just like mainnet except that
+
+- it's not running an expensive PoW or PoS consensus, only a few (<10) nodes dictates a much faster, yet centralized mining process -- so-called "Proof of Authority";
+- and that money on testnet are worthless, and only for experiment/testing purpose.
+
+To get the "fake" testnet ether, you need to go to the respective **faucet** (just search "XXX testnet faucet").
+
+In Ropsten case, you can find [this faucet](https://faucet.ropsten.be/).
+Copy your account from MetaMask and paste into input field, then click "Send me test Ether".
+Wait for a while, and you should see your balance increased in Metamask wallet.
+
+Please be noted that some testnet would require some form of social proofs to get test ether to prevent DoS attack; some may require you to wait for a few minutes; almost all have a rate limit (at most request X test ether in Y hours).
+
+![faucet](./assets/faucet/png)
+![metamask with balance](./assets/metamask-balance.png)
+
+### Step 4.3 Register an Infura Account
+
+Register [an account here](https://infura.io/register), then "Create New Project" with an arbitrary project name,
+navigate to "Setting" tab inside the project you just created, you should see something similar to:
+
+![infura api keys](./assets/infura.png)
+
+### Step 4.4 Modify your `truffle-config.js`
+
+un-comment the following two sections of the `truffle-config.js` file at the root of your project folder.
+
+![config snippet 1](./assets/config1.png)
+![config snippet 2](./assets/config2.png)
+
+Fill in your own `YOUR-PROJECT-ID` and `infuraKey` (i.e. "Project Secret") as shown in the infura portal in the last step.
+
+Create a file named `.secret`, copy paste your MetamMsk mnemonic seed into this file. (1. remember to gitignore this sensitive file; 2. to find out about your seed, go to MetaMask top right "Settings > Security & Privacy > Reveal Seed Phrase")
+
+Add `HDWalletProvider` dependency:
+
+```sh
+npm install @truffle/hdwallet-provider # or: yarn add @truffle/hdwallet-provider
+```
+
+### Step 4.5 Deploy away
+
+Run:
+
+```sh
+truffle migrate --network ropsten # or other testnet name specified in your `truffle-config.js`
+```
+
+If your terminal returns success, then your contracts are deployed, you can find their respective addresses in the logs output.
+
+There are two ways to double check:
+
+1. Go to MetaMask, click on "View on EtherScan", you should be able to see 4 recent transactions -- 2 are marked as "Contract Creation" (since we have two contracts), the other 2 are init calls which invokes the [constructor](https://solidity.readthedocs.io/en/v0.7.1/contracts.html?#constructors) of the smart contracts.
+
+![metamask view on etherscan](./assets/metamask-viewscan.png)
+![etherscan](./assets/etherscan.png)
+
+2. Copy the "contract address: 0xba..." from the terminal output and go to [EtherScan](https://ropsten.etherscan.io/) and directly search for them:
+
+```sh
+   Deploying 'Bank'
+   ----------------
+   > transaction hash:    0xd47068e697525e79db5e0451467be90b89a33df2769335c4847eb405936b2c6b
+    > Blocks: 2            Seconds: 33
+   > contract address:    0xB280Db02eFdb0c940926d7B92F9Fc24aBffaa9C2 # COPY THIS ONE!!!
+   > block number:        8721461
+   > block timestamp:     1600614039
+   > account:             0xcc6b9a2Ef844002c413d992B980EeB7b08899A10
+   > balance:             2.460217323799708665
+   > gas used:            324297 (0x4f2c9)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00648594 ETH
+```
+
+Here's the [searched result](https://ropsten.etherscan.io/address/0xB280Db02eFdb0c940926d7B92F9Fc24aBffaa9C2).
+
+## Step 5: Connecting Front-end Using web3.js or ethers.js
+
+## Step 6: Launch 🚀 & Celebrate 🥂
