@@ -8,6 +8,7 @@
   },
   "private": true,
   "dependencies": {
+    "@metamask/detect-provider": "^1.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "web3": "^1.3.0"
@@ -15,5 +16,7 @@
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
   },
-  "browserslist": ["last 1 Chrome version"]
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
 }

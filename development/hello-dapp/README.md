@@ -262,14 +262,86 @@ In this tutorial, we will just use extreme bare-bone [React App](https://reactjs
 
 The main file to learn from is [bank.js](./webapp/bank.js):
 
+```js
+import Web3 from "web3";
+// ...
+const web3 = new Web3(
+  Web3.currentProvider || new Web3.providers.WebsocketProvider(infuraWSS)
+);
+// doc here: https://web3js.readthedocs.io/en/v1.2.11/web3.html#providers
+const contract = new web3.eth.Contract(artifact.abi, BankContractAddress);
+
+export const updateDeposit = async (addr) => {
+  // doc here: https://web3js.readthedocs.io/en/v1.2.11/web3-eth-contract.html#methods-mymethod-call
+  const newBalance = await contract.methods.balance().call({ from: addr });
+  return { address: addr, deposit: newBalance };
+};
+
+export const newDeposit = async (amount) => {
+  // Using MetaMask API to send transaction
+  //
+  // please read: https://docs.metamask.io/guide/ethereum-provider.html#ethereum-provider-api
+  const provider = await detectEthereumProvider();
+  if (provider) {
+    // From now on, this should always be true:
+    // provider === window.ethereum
+    ethereum.request({
+      method: "eth_sendTransaction",
+      params: [
+        {
+          from: ethereum.selectedAddress,
+          to: BankContractAddress,
+          value: web3.utils.toWei(amount),
+          data: web3.eth.abi.encodeFunctionCall(
+            {
+              name: "deposit",
+              type: "function",
+              inputs: [],
+            },
+            []
+          ), // https://web3js.readthedocs.io/en/v1.2.11/web3-eth-abi.html#encodefunctioncall
+          chainId: 3, // ropsten
+        },
+      ],
+    });
+  } else {
+    console.log("Please install MetaMask!");
+  }
+};
+```
+
+`updateDeposit` demonstrates how you can read from blockchain with Infura web socket provider;
+`newDeposit` demonstrates how you can send transaction to contract on ropsten via MetaMask.
+
 To view our web app locally, start the web app and view [here](http://localhost:1234):
 
 ```sh
 npm start # or: yarn start
 ```
 
+You should be able to query deposit of any address:
+
+![webapp query deposit](./assets/webapp-before.png)
+
+To actually send transaction, we can use MetaMask's API and UI (see more links in the comments in our `webapp/bank.js`).
+
+First, we need to connect our MetaMask extension to our localhost site:
+
+![webapp metamask connect](./assets/webapp-metamask-connect.png)
+![webapp metamask connect2](./assets/webapp-metamask-connect2.png)
+![webapp metamask done](./assets/webapp-metamask-done.png)
+
+Finally, let's deposit some of our test Ether to our `Bank.sol` contract on the live ropsten testnet:
+
+![webapp deposit](./assets/webapp-deposit.png)
+
+Lastly, let's confirm that our deposit increased by querying again:
+![webapp query deposit post](./assets/webapp-after.png)
+
 ## Step 6: Launch 🚀 & Celebrate 🥂
 
 ## Additional Resources
 
 - If you're using React, consider using: [web3-react](https://github.com/NoahZinsmeister/web3-react) or [create-eth-app](https://github.com/PaulRBerg/create-eth-app)
+- If you're using React and want to use Truffle's native support, you can try [Drizzle](https://www.trufflesuite.com/docs/drizzle/overview), it has quite a few good examples to follow to set up your own front end app.
+- If you want a ["Connect to MetaMask" button](https://docs.metamask.io/guide/accessing-accounts.html) instead of asking users to manually connect, see this blog [here](https://docs.metamask.io/guide/create-dapp.html#basic-action-part-1).
