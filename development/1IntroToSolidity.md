@@ -1,4 +1,7 @@
 <h1>1. Introduction to Solidity - The Basics </h1>
+
+<a href="https://cryptozombies.io/">CryptoZombies</a> is a game-based tutorial that teaches you all things technical about blockchains and also, how to make smart contracts in Solidity. You are suggested to play the game and use this tutorial as a reference material.
+
 <h2> 1. Data Types </h2>
 <h4> 1.1 Value Types </h4>
 Value types are the data that is passed by value.
@@ -345,8 +348,6 @@ modifier onlyOwner() {
 1. <a href="https://drive.google.com/file/d/1ceFHDQyZB7WUP-EMnUbki3Ooir1ULBz0/view">Blockchain@Berkeley Slides</a>
 
 2. <a href="https://docs.google.com/presentation/d/10f86TBXPca66OE_xw2f2W9ZOVLkp8KR8iLkw7xdQElI/edit?usp=sharing">Blockchain@NTU Slides</a>
-
-<a href="https://cryptozombies.io/">CryptoZombies</a> is a game-based tutorial that teaches you all things technical about blockchains and also, how to make smart contracts in Solidity. 
 
 <a href="https://ethernaut.openzeppelin.com/">Ethernaut</a> is a CTF-style game focused on smart contract development and security.
 
