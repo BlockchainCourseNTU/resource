@@ -256,4 +256,20 @@ Here's the [searched result](https://ropsten.etherscan.io/address/0xB280Db02eFdb
 
 ## Step 5: Connecting Front-end Using web3.js or ethers.js
 
+You can use any front end framework you want (e.g. React, Angular, Vuejs, Emberjs etc.).
+
+In this tutorial, we will just use extreme bare-bone [React App](https://reactjs.org/) for simplicity, and only demonstrate how to use **web3.js** since using _ethers.js_ is very similar experience.
+
+The main file to learn from is [bank.js](./webapp/bank.js):
+
+To view our web app locally, start the web app and view [here](http://localhost:1234):
+
+```sh
+npm start # or: yarn start
+```
+
 ## Step 6: Launch 🚀 & Celebrate 🥂
+
+## Additional Resources
+
+- If you're using React, consider using: [web3-react](https://github.com/NoahZinsmeister/web3-react) or [create-eth-app](https://github.com/PaulRBerg/create-eth-app)
