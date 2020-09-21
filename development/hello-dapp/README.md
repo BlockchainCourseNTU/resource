@@ -329,7 +329,10 @@ First, we need to connect our MetaMask extension to our localhost site:
 
 ![webapp metamask connect](./assets/webapp-metamask-connect.png)
 ![webapp metamask connect2](./assets/webapp-metamask-connect2.png)
-![webapp metamask done](./assets/webapp-metamask-done.png)
+
+You should be able to see the "Connected" label now:
+
+![webapp metamask done](./assets/webapp-metamask-connect-done.png)
 
 Finally, let's deposit some of our test Ether to our `Bank.sol` contract on the live ropsten testnet:
 
