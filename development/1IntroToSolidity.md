@@ -118,7 +118,7 @@ delete b; // Sets to initial value, set all variables in struct to 0, except map
 ```
 <h5> 1.2.3 Data Locations </h5>
 
-* memory: 
+* memory
 * storage
 * calldata
 <h5> 1.2.4 Mappings </h5>
