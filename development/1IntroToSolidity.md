@@ -149,16 +149,14 @@ delete balances; // Set all elements to 0
 ```
 <h2> 2. Functions </h2>
 <h4> 2.1 Function Basics </h4>
+
 * function name
-
 * argType1 arg1, ...
-
 * access classifier
    * public - all can access
    * external - cannot be accessed internally, only externally
    * internal - only this contract and contracts derived from it can access
-   * private - can be accessed only from this contract
-   
+   * private - can be accessed only from this contract 
 * returnType(optional return var name)
 
 ```
@@ -244,7 +242,7 @@ require(a == 10**18 && b == 10**15); // true
 <h4> 3.2 Time </h4>
 
 * Solidity tracks time as a Unix TimeStamp, 
-* A number can take a postfix of **seconds*, **minutes**, **hours**, etc. to convert between denominations of Ether.
+* A number can take a postfix of **seconds**, **minutes**, **hours**, etc. to convert between denominations of Ether.
 
 ```
 // Time units
