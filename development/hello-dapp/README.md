@@ -190,8 +190,7 @@ Wait for a while, and you should see your balance increased in Metamask wallet.
 
 Please be noted that some testnet would require some form of social proofs to get test ether to prevent DoS attack; some may require you to wait for a few minutes; almost all have a rate limit (at most request X test ether in Y hours).
 
-![faucet](./assets/faucet/png)
-![metamask with balance](./assets/metamask-balance.png)
+![faucet](./assets/faucet.png)
 
 ### Step 4.3 Register an Infura Account
 
