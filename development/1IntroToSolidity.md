@@ -9,19 +9,19 @@ Value types are the data that is passed by value.
  
 Bool type only has 2 possible values, `true` or `false`. They allow the following operators:
 
-* !(logical negation)
-* &&(logical and)
-* ||(logical or)
-* ==(equality)
-* !=(inequality)
+* `!`(logical negation)
+* `&&`(logical and)
+* `||`(logical or)
+* `==`(equality)
+* `!=`(inequality)
 
 ##### 1.1.2 Integers
 Size of integers ranges from int8/uint8 to int256/uint256, in steps of 8. They allow the following operators:
 
 * Comparisons: `<=`, `<`, `==`, `!=`, `>=`, `>` (evaluate to bool)
-* Bit operators: &, |, ^ (bitwise exclusive or), ~(bitwise negation)
-* Shift operators: <<(left shift), >>(right shift)
-* Arithmetic operators: +, -, unary-, *, /, %(modulo), **(exponentation)
+* Bit operators: `&`, `|`, `^` (bitwise exclusive or), `~`(bitwise negation)
+* Shift operators: `<<`(left shift), `>>`(right shift)
+* Arithmetic operators: `+`, `-`, unary`-`, `*`, `/`, `%`(modulo), `**`(exponentation)
 
 ##### 1.1.3 Address 
 There are two main types of this class:
@@ -33,7 +33,7 @@ They allow the following operators: `<=`, `<`, `==`, `!=`, `>=`, `>`
 
 The transfer function fails if the balance of the current contract is not large enough or if the Ether transfer is rejected by the receiving account. The transfer function reverts on failure.
 
-Send is the low-level counterpart of transfer. If the execution fails, the current contract will not stop with an 
+Send is the low-level counterpart of transfer. They are both [members of addresses](https://solidity.readthedocs.io/en/v0.7.0/types.html?highlight=send#members-of-addresses). If the execution fails, the current contract will not stop with an exception, but `send` will retutn `false`.
 
 Example of Transfer & Send
 
@@ -119,7 +119,7 @@ Bank c = Bank(msg.sender, 5);
 c.balance = 4; // Set to new value
 delete b; // Sets to initial value, set all variables in struct to 0, except mappings
 ```
-##### 1.2.3 Data Locations 
+##### 1.2.3 [Data Locations](https://solidity.readthedocs.io/en/v0.7.0/types.html?highlight=data%20locations#data-location) 
 
 * memory
 * storage
@@ -150,7 +150,7 @@ mapping(address => mapping (address => uint)) public custodians;
 delete balances["John"];
 delete balances; // Set all elements to 0
 ```
-## 2. Functions 
+## 2. [Functions](https://solidity.readthedocs.io/en/v0.7.0/structure-of-a-contract.html?highlight=functions#functions) 
 #### 2.1 Function Basics 
 
 * function name
@@ -176,7 +176,7 @@ function withdraw(uint withdrawAmount) public returns (uint remainingBal) {
 
 **IMPORTANT**: Access classifiers determine who can USE your functions, but everyone can see them, since
 
-#### 2.2 Payable Function 
+#### 2.2 [Payable Function](https://solidity.readthedocs.io/en/v0.7.0/060-breaking-changes.html?highlight=payable%20function#new-features) 
 Only functions marked as payable can receive Ether. Non-payable functions with Ether values will be routed to default function.
 
 ```solidity
@@ -193,7 +193,7 @@ function deposit() public payable returns (uint) {
 }
 ```
 
-#### 2.3 Fallback Function 
+#### 2.3 [Fallback Function](https://solidity.readthedocs.io/en/v0.7.0/contracts.html?highlight=fallback#fallback-function) 
 Intuitively, this can be thought of as the default behavior when the contract does not recognize the command.
 
 * Invoked when a function is called which does not match any other contract function
@@ -211,7 +211,7 @@ function() external payable {
 ```
 
 
-#### 2.4 Constructors 
+#### 2.4 [Constructors](https://solidity.readthedocs.io/en/v0.7.0/structure-of-a-contract.html?highlight=functions#functions) 
 
 * Create an instance of the contract with the given arguments
 * Only one allowed, cannot be overloaded
@@ -264,7 +264,7 @@ this.balance;
 this.someFunction(); // calls func externally via call, not via internal jump
 ```
 
-#### 3.4 MSG, TX 
+#### 3.4 [MSG, TX](https://solidity.readthedocs.io/en/v0.7.0/units-and-global-variables.html?highlight=msg#block-and-transaction-properties) 
 
 ```solidity
 // msg - Current message received by the contract
@@ -321,7 +321,7 @@ contract Consumer {
 }
 ```
 
-## 5. Modifiers 
+## 5. [Modifiers](https://solidity.readthedocs.io/en/v0.7.0/cheatsheet.html?highlight=modifiers#modifiers) 
 Modifiers validate inputs to functions such as minimal balance or user auth.
 
 For example, for a function that transfers balances from one address to another:
@@ -347,11 +347,11 @@ modifier onlyOwner() {
 
 1. [Blockchain@Berkeley Slides](https://drive.google.com/file/d/1ceFHDQyZB7WUP-EMnUbki3Ooir1ULBz0/view)
 
-2. <a href="https://docs.google.com/presentation/d/10f86TBXPca66OE_xw2f2W9ZOVLkp8KR8iLkw7xdQElI/edit?usp=sharing">Blockchain@NTU Slides</a>
+2. [Blockchain@NTU Slides](https://docs.google.com/presentation/d/10f86TBXPca66OE_xw2f2W9ZOVLkp8KR8iLkw7xdQElI/edit?usp=sharing)
 
-<a href="https://ethernaut.openzeppelin.com/">Ethernaut</a> is a CTF-style game focused on smart contract development and security.
+[Ethernaut](https://ethernaut.openzeppelin.com/) is a CTF-style game focused on smart contract development and security.
 
-For any grammar details, please refer to the <a href="https://solidity.readthedocs.io/en/latest/">Solidity documentation</a>.
+For any grammar details, please refer to the [Solidity documentation](https://solidity.readthedocs.io/en/latest/).
 
 First version by:
 
