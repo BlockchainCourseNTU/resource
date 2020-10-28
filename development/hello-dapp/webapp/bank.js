@@ -38,7 +38,7 @@ export const newDeposit = async (amount) => {
         {
           from: ethereum.selectedAddress,
           to: BankContractAddress,
-          value: web3.utils.toWei(amount),
+          value: web3.utils.toHex(web3.utils.toWei(amount)), // have to convert to hexdemical for big number
           data: web3.eth.abi.encodeFunctionCall(
             {
               name: "deposit",
