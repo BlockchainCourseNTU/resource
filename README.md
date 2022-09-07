@@ -11,8 +11,13 @@ Resources for research, development and learning for NTU CZ4153/CE4153 by NTU Si
 
 ## Contributors
 
-The course instructors and TAs are [Prof. Wen Yonggang](https://www.ntu.edu.sg/home/ygwen/), [Dr. Sourav Gupta](https://github.com/sgsourav), 
-[Alex Xiong](https://github.com/alxiong), [Su Huangyuan](https://github.com/Hither1), 
-[Wang Ruihang](https://github.com/RuihangWang), and [Shen Meng](https://github.com/GuluDeemo).
+The course instructors and TAs are [Prof. Wen Yonggang](https://personal.ntu.edu.sg/ygwen/), [Prof. Li Yi](https://personal.ntu.edu.sg/yi_li/), Mr. Lian Qiao, [Ms. Palina Tolmach](https://palinatolma.ch/), Mr. Liu Ye, and Mr. Xu Xiufeng.
 
-If you have any question, please feel free to approach us on Microsoft Team, or open a Github Issue.
+Thanks for the contributors from the past editions of this course:
+- [Dr. Sourav Gupta](https://github.com/sgsourav)
+- [Alex Xiong](https://github.com/alxiong) 
+- [Su Huangyuan](https://github.com/Hither1)
+- [Wang Ruihang](https://github.com/RuihangWang)
+- [Shen Meng](https://github.com/GuluDeemo)
+
+If you have any question, please feel free to approach us, or open a GitHub Issue.
