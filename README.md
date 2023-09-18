@@ -11,7 +11,7 @@ Resources for research, development and learning for NTU CZ4153/CE4153 by NTU Si
 
 ## Contributors
 
-The course instructors and TAs are [Prof. Wen Yonggang](https://personal.ntu.edu.sg/ygwen/), [Prof. Li Yi](https://personal.ntu.edu.sg/yi_li/), Mr. Lian Qiao, [Ms. Palina Tolmach](https://palinatolma.ch/), Mr. Liu Ye, and Mr. Xu Xiufeng.
+The course instructors and TAs are [Prof. Wen Yonggang](https://personal.ntu.edu.sg/ygwen/), [Prof. Li Yi](https://personal.ntu.edu.sg/yi_li/), Mr. Liu Ye, and Mr. Xu Xiufeng.
 
 Thanks for the contributors from the past editions of this course:
 - [Dr. Sourav Gupta](https://github.com/sgsourav)
