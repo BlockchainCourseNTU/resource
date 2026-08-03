@@ -1,4 +1,4 @@
-# CX4153 Blockchain Technology 
+# SC4053 Blockchain Technology 
 Resources for research, development and learning for NTU CZ4153/CE4153 by NTU Singapore
 
 ## Quick Access
